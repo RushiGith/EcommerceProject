@@ -9,7 +9,7 @@ public class Registeration {
 
 	PreparedStatement prs=null;
 	Connection con=null;
-	public void registeration(String firstname,String lastname,String username,String password ,String city,String Emailid,Integer Mobileno){
+	public void registeration(String firstname,String lastname,String username,String password ,String city,String Emailid,Long Mobileno){
 		try {
 		Connectionjdbc connect= new Connectionjdbc();
 	     con = connect.getconnection();
@@ -20,7 +20,7 @@ public class Registeration {
 	      prs.setString(4, password);
 	      prs.setString(5, city);
 	      prs.setString(6, Emailid);
-	      prs.setInt(7, Mobileno);
+	      prs.setLong(7, Mobileno);
 	      int i = prs.executeUpdate();
 	      System.out.println("Record Is Added Successfully"+i);
 	     // con.close();

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.velocity.project.Connectionjdbc;
+import com.velocity.retrivedata.Retrivedatafromdatabase;
 
 
 public class UserRegisteration  extends Registeration{
@@ -36,7 +37,7 @@ public void registerdata() {
 		String Emailid=sc.next();
 				
 		System.out.println("Enter Mobile no");
-		int Mobileno=sc.nextInt();
+		long Mobileno=sc.nextLong();
 		
 		UserRegisteration reguser=new UserRegisteration();
 		reguser.registeration(fisrtname, lastname, username, password,city,Emailid,Mobileno);
@@ -66,6 +67,12 @@ public void userLogin() {
 	
 		e.printStackTrace();
 	}
+}
+
+public void getdata() {
+	Retrivedatafromdatabase s=new Retrivedatafromdatabase();
+	s.retrive();
+	
 }
 }
 	

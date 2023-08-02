@@ -33,10 +33,12 @@ public static void main(String args[]){
 	
 	}
 	
-    
+	else if(selectUser==3)
+	{
 	
-	
-	
+	System.out.println("User View Product");
+	reg.getdata();
+	}
 	
 	
 	

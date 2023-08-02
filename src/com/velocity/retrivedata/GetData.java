@@ -2,7 +2,7 @@ package com.velocity.retrivedata;
 
 public class GetData {
 
-	public static void main(String[] args) {
+	public  void getdata() {
 		Retrivedatafromdatabase get= new Retrivedatafromdatabase();
 		get.retrive();
 	}
