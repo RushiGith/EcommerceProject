@@ -9,7 +9,9 @@ Connection connection=null;
 	public Connection getconnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection  = DriverManager.getConnection("jdbc:mysql://localhost:3306/insertdata", "root", "root");	
+			connection  = DriverManager.getConnection("jdbc:mysql://localhost:3306/insertdata", "root", "root");
+		
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
