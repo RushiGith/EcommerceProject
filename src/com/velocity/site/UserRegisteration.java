@@ -1,13 +1,19 @@
 package com.velocity.site;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.velocity.project.Connectionjdbc;
+
 
 public class UserRegisteration  extends Registeration{
 	Scanner sc= new Scanner(System.in);
+	Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
 public void registerdata() {
 	
 	{
@@ -44,18 +50,24 @@ public void userLogin() {
 	System.out.println("Enter Password");
 	String password=sc.next();
 	try {
-		PreparedStatement prs= con.prepareStatement("select * from userregistration");
-		ResultSet set = prs.getResultSet();
-		while(set.next()) {
-			if(set.getString(4).equals(username)&&(set.getString(5).equals(password))) {
+		Connectionjdbc connectionjdbc = new Connectionjdbc();
+		con = connectionjdbc.getconnection();
+		PreparedStatement ps= con.prepareStatement("select * from userregistration");
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) {
+			if(rs.getString(4).equals(username)&&(rs.getString(5).equals(password))) {
 				System.out.println("Login Successfully");
+				}
+			else {
+		System.out.println("Your Enter Incorrect User Name Password");
 			}
 		}
-	} catch (Exception e) {
+}catch (Exception e) {
 	
 		e.printStackTrace();
 	}
 }
-	
 }
+	
+
 	
