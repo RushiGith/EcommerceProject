@@ -12,11 +12,16 @@ public void retrive() {
 		PreparedStatement prs = con.prepareStatement("select*from product");
 		ResultSet set = prs.executeQuery();
 		while(set.next()) {
-			System.out.println("ID="+set.getInt(1));
-			System.out.println("discription="+set.getString(2));
-			System.out.println("productname="+set.getString(3));
-			System.out.println("price="+set.getInt(4));
+			System.out.print("ID="+set.getInt(1));
+			System.out.print(" || ");
+			System.out.print("discription="+set.getString(2));
+			System.out.print(" || ");
+			System.out.print("productname="+set.getString(3));
+			System.out.print(" || ");
+			System.out.print("price="+set.getInt(4));
+			System.out.print(" || ");
 			System.out.println("quantity="+set.getInt(5));
+			System.out.println("------------------------------------------------");
 		}
 		con.close();
 		prs.close();

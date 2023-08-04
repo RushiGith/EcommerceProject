@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.velocity.project.Connectionjdbc;
+import com.velocity.retrivedata.Orderbuacending;
 import com.velocity.retrivedata.Retrivedatafromdatabase;
 
 
@@ -15,6 +16,7 @@ public class UserRegisteration  extends Registeration{
 	Connection con = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
+	Retrivedatafromdatabase s=new Retrivedatafromdatabase();
 public void registerdata() {
 	
 	{
@@ -57,12 +59,16 @@ public void userLogin() {
 		ResultSet rs = ps.executeQuery();
 		while(rs.next()) {
 			if(rs.getString(4).equals(username)&&(rs.getString(5).equals(password))) {
+				s.retrive();
 				System.out.println("Login Successfully");
-				}
-			else {
-		System.out.println("Your Enter Incorrect User Name Password");
-			}
-		}
+				break;
+		      }
+			else 
+			{
+		   System.out.println("Your Enter Incorrect User And Name Password");
+		   break;
+	      }
+		} 
 }catch (Exception e) {
 	
 		e.printStackTrace();
@@ -72,8 +78,33 @@ public void userLogin() {
 public void getdata() {
 	Retrivedatafromdatabase s=new Retrivedatafromdatabase();
 	s.retrive();
-	
+
 }
+
+public void buy()
+{
+	System.out.println("Enter Product id to buy product ");
+	String id=sc.next();
+		
+	System.out.println("Enter the Quantity");
+	String  quantity = sc.next();
+	try {
+		Connectionjdbc connectionjdbc = new Connectionjdbc();
+		con = connectionjdbc.getconnection();
+		PreparedStatement ps= con.prepareStatement("select * from product");
+		ResultSet rs = ps.executeQuery();
+		   while(rs.next()) {
+			 s.retrive();
+				System.out.println("Product added successfully");
+				
+				}
+		
+}catch (Exception e) {
+	
+		e.printStackTrace();
+	}
+}
+
 }
 	
 
